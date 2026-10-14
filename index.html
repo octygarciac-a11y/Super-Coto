@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Super Coto</title>
+  <link rel="icon" type="image/x-icon" href="coto.ico">
+</head>
+<body>
+  <div class="perro" id="caja1">
+    <div>
+    <img src="coto.jpg" alt="">
+    <span id="id1">¿No estás registrado?</span>
+    <span id="id2">Create una cuenta crack</span>
+    </div>
+    <div>
+    <input type="text" placeholder="Usuario" id="usuario">
+    <div><input type="password" placeholder="Contraseña" id="contrasenia"><img src="ojo.png" alt="" id="ojo"></div>
+    </div>
+    <div class="contraFlorAlResto">
+      <span>¡Listo!</span>
+      <img src="capi.jpg" alt="" id="listo">
+    </div>
+  </div>
+  <div class="z" id="caja2">
+    <div>
+      <img src="coto.jpg" alt="" class="touch" id="6">
+      <img src="apb.png" alt="">
+      <div>
+        <div class="touch" id="0"><span>Carnicería</span></div>
+        <div class="touch" id="1"><span>Verdulería</span></div>
+        <div class="touch" id="2"><span>Almacén</span></div>
+        <div class="touch" id="3"><span>Golosinas</span></div>
+        <div class="touch" id="4"><span>Chupi</span></div>
+        <div class="touch" id="5"><span>Limpieza</span></div>
+      </div>
+    </div>
+    <div id="navidad"></div>
+    <div>
+      <div id="flechita"><span>🠸</span></div>
+      <div class="capusotto" id="v8">
+        <div><img src="chango.png" alt=""><span>Tu carrito</span><div></div></div>
+        <div>
+          <div><div><span>Total</span><span id="cuenta">$0</span></div><img src="garpar.png" alt="" id="garpar"></div>
+          <div id="carrito"></div>
+        </div>
+      </div>
+    </div>
+    <div class="z" id="primera">
+      <div>
+        <span id="chupete">¿Deseas Pagar?</span>
+        <div><div id="yes"><span>SI</span></div><div id="no"><span>NO</span></div></div>
+      </div>
+    </div>
+    <div class="z" id="tercera">
+      <span>¡Gracias por tu compra, crack!</span>
+      <div id="listoProblema"><span>X</span></div>
+    </div>
+  </div>
+</body>
+<style>
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    padding: 0px;
+  }
+  * {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+  }
+  .z {
+    display: none;
+  }
+  .segunda {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .segunda > div {
+    width: 40vw;
+    height: 40vh;
+    background-color: rgb(255, 64, 64);
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center; 
+  }
+  .segunda > div > span {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+  }
+  .segunda > div > div {
+    height: 20%;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .segunda > div > div > div {
+    height: 75%;
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .segunda > div > div > div > span {
+    font-size: 1rem;
+    color: white;
+  }
+  .segunda > div > div > div > span:hover {
+    cursor: pointer;
+  }
+  .cuarta {
+    position: absolute;
+    top: 30vh;
+    left: 30vw;
+    width: 40vw;
+    height: 40vh;
+    background-color: rgb(255, 64, 64);
+    border: 2px solid white;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+  }
+  .cuarta > span {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+  }
+  .cuarta > div {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    height: 15%;
+    aspect-ratio: 1/1;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cuarta > div > span {
+    font-size: 1rem;
+    color: white;
+  }
+  .cuarta > div > span:hover {
+    cursor: pointer;
+  }
+  #yes {background-color: green;}
+  #no, #listoProblema {background-color: rgb(128,0,0);}
+  .contenedor {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    background-color: red;
+  }
+  .capusotto {
+    height: 75vh;
+    width: 30vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .capusotto > :nth-child(1) {
+    height: 15vh;
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5%;
+  }
+  .capusotto > :nth-child(1) > img {
+    height: 10vh;
+    aspect-ratio: 1/1;
+  }
+  .capusotto > :nth-child(1) > span {
+    color: black;
+    font-size: 3rem;
+  }
+  .capusotto > :nth-child(2) {
+    height: 60vh;
+    width: 100%;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: row;
+  }
+  .capusotto > :nth-child(2) > :nth-child(1) {
+    height: 60vh;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+  }
+  .capusotto > :nth-child(2) > :nth-child(1) > div {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .capusotto > :nth-child(2) > :nth-child(1) > div > span {
+    color: black;
+    font-size: 1rem;
+    word-break: break-all;
+  }
+  .capusotto > :nth-child(2) > :nth-child(1) > img {
+    width: 90%;
+    aspect-ratio: 2/1;
+  }
+  .capusotto > :nth-child(2) > :nth-child(1) > img:hover {
+    cursor: pointer;
+  }
+  .capusotto > :nth-child(2) > :nth-child(2) {
+    height: 60vh;
+    width: 80%;
+    background-color: rgb(200,200,200);
+    border-left: 1px solid black;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .capusotto > :nth-child(2) > :nth-child(2) > div {
+    min-height: 10vh;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1%;
+  }
+  .capusotto > :nth-child(2) > :nth-child(2) > div > span {
+    color: black;
+    font-size: 1rem;
+  }
+  .contenedor > :nth-child(3) {
+    position: absolute;
+    top: 25vh;
+    left: 96vw;
+    width: auto;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+  }
+  .contenedor > :nth-child(3) > div:first-of-type {
+    height: 10vh;
+    width: 4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .contenedor > :nth-child(3) > div:first-of-type > span {
+    width: auto;
+    height: auto;
+    font-size: 3rem;
+    color: black;
+  }
+  .contenedor > :nth-child(3) > div:first-of-type:hover {
+    cursor: pointer;
+    background-color: rgb(200,200,200);
+  }
+  .contenedor > :nth-child(2) {
+    position: relative;
+    width: 100vw;
+    height: 75vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .contenedor > :nth-child(2)::-webkit-scrollbar {
+    display: none;
+  }
+  .contenedor > :nth-child(2) > div {
+    width: 20vw;
+    height: 50vh;
+    margin-left: calc(40vw/6);
+    margin-right: calc(40vw/6);
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: grey;
+    border: 2px solid black;
+    padding-top: 2.5vh;
+    padding-bottom: 2.5vh;
+  }
+  .contenedor > :nth-child(2) > div > span {
+    font-size: 3rem;
+    color: white;
+  }
+  .alto {
+    height: 60%;
+    width: auto;
+    max-width: 60%;
+  }
+  .ancho {
+    width: 60%;
+    height: auto;
+    max-height: 60%;
+  }
+  .contenedor > :nth-child(2) > div > div {
+    width: 95%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .contenedor > :nth-child(2) > div > div span {
+    font-size: 1rem;
+    color: white;
+  }
+  .contenedor > :nth-child(2) > div > div > div {
+    position: relative;
+    height: 60%;
+    aspect-ratio: 2.5/1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .contenedor > :nth-child(2) > div > div > div > div {
+    position: relative;
+    height: 100%;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedor > :nth-child(2) > div > div > div > div > span {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .contenedor > :nth-child(2) > div > div > div > div:hover {
+    cursor: pointer;
+    background-color: rgb(128,0,0);
+  }
+  .contenedor > :nth-child(1) {
+    position: relative;
+    width: 100vw;
+    height: 25vh;
+    background-color: white;
+  }
+  .contenedor > :nth-child(1) > img:first-of-type {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 12vh;
+    width: auto;
+  }
+  .contenedor > :nth-child(1) > img:hover {
+    cursor: pointer;
+  }
+  .contenedor > :nth-child(1) > img:last-of-type {
+    position: absolute;
+    top: 1vh;
+    right: 5vw;
+    height: 23vh;
+    width: auto;
+  }
+  .contenedor > :nth-child(1) > div {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+    height: 8vh;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    overflow: hidden;
+  }
+  .contenedor > :nth-child(1) > div > div {
+    background-color: rgb(200, 200, 200);
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .contenedor > :nth-child(1) > div > div:hover {
+    cursor: pointer;
+    background-color: grey;
+  }
+  .contenedor > :nth-child(1) > div > div:last-of-type {
+    border-top-right-radius: 25px;
+  }
+  .contenedor > :nth-child(1) > div > div > span {
+    font-size: 1.5rem;
+  }
+  .contraFlorAlResto {
+    position: absolute;
+    left: 5vw;
+    bottom: 10vh;
+    width: 15vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+  }
+  .contraFlorAlResto > span {
+    font-size: 2rem;
+    color: black;
+  }
+  .contraFlorAlResto > img {
+    width: 100%;
+    height: 75%;
+  }
+  .contraFlorAlResto:hover {
+    cursor: pointer;
+    background-color: rgb(0, 192, 255);
+  }
+  .perro {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .perro > div:nth-of-type(1) {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .perro > div:nth-of-type(1) > img {
+    width: 10vw;
+    height: auto;
+  }
+  .perro > div:nth-of-type(1) > span {
+    font-size: 5rem;
+    color: black;
+  }
+  .perro > div:nth-of-type(2) {
+    width: 100vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 30vw;
+  }
+  .perro > div:nth-of-type(2) > input {
+    width: 40vw;
+    height: 10vh;
+    background-color: white;
+    color: black;
+    border: 2px solid grey;
+    padding: 0px;
+    padding-left: 2vw;
+    font-size: 1.5rem;
+  }
+  .perro > div:nth-of-type(2) > input:hover {
+    cursor: pointer;
+    border: 2px solid blue;
+  }
+  .perro > div:nth-of-type(2) > div {
+    width: 50vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .perro > div:nth-of-type(2) > div > input {
+    width: 40vw;
+    height: 10vh;
+    background-color: white;
+    color: black;
+    border: 2px solid grey;
+    padding: 0px;
+    padding-left: 2vw;
+    font-size: 1.5rem;
+  }
+  .perro > div:nth-of-type(2) > div > input:hover {
+    cursor: pointer;
+    border: 2px solid blue;
+  }
+  .perro > div:nth-of-type(2) > div > img {
+    position: relative;
+    width: 5vw;
+    height: 2.5vw;
+  }
+  .perro > div:nth-of-type(2) > div > img:hover {
+    cursor: pointer;
+  }
+  .perro input:focus {
+    outline: none;
+  }
+  .perro input::placeholder {
+    color: rgb(64,64,64);
+    font-size: 1.5rem;
+  }
+  .perro input:hover::placeholder {
+    color: blue;
+  }
+  .perro input:focus::placeholder {
+    color: blue;
+  }
+</style>
+<script>
+  console.log(`localStorage.removeItem("infoCoto");`);
+  let ultimasCompras = [
+    ["Tapa de Asado","asado.png",0,15000],["Vacio","vacio.png",0,18000],["Bondiola","bondiola.png",0,10000],
+    ["Bola de Lomo","bolaDeLomo.png",0,20000],["Cuadril","cuadril.png",0,19000],["Nalga","nalga.png",0,18000],
+    ["Tomate x kilo","tomate.png",0,2500],["Lechuga c/u","lechuga.png",0,1000],["Papa x kilo","papa.png",0,2000],
+    ["Manzana x kilo","manzana.png",0,3500],["Banana x kilo","banana.png",0,2500],["Naranja x kilo","naranja.png",0,2500],
+    ["Fideos Luchetti","fideos.png",0,1500],["Arroz Gallo","arroz.png",0,2000],["Yerba Playadito","yerba.png",0,5500],
+    ["Celusal","celusal.png",0,4500],["Galletitas","galletitas.png",0,2500],["Aceite Cañuelas","aceite.png",0,3500],
+    ["Jorgito","alfajor.png",0,1500],["Mogul","mogul.png",0,1000],["Bolsa de Caramelos","caramelos.png",0,2000],
+    ["Rocklets","rocklets.png",0,1000],["Bombon Helado","helado.png",0,1500],["Chocolate Milka","milka.png",0,2000],
+    ["Agua Glaciar","agua.png",0,2000],["Jugo Fresh","jugo.png",0,2500],["Coca","coca.png",0,5000],
+    ["El Vino este","vino.png",0,6500],["Cerveza Quilmes","cerveza.png",0,3000],["Fernet Branca","fernet.png",0,10000],
+    ["Rollo de Cocina","rolloCocina.png",0,2500],["Rollo de Baño","rolloBano.png",0,1500],["Procenex","procenex.png",0,1500],
+    ["Lavandina Ayudin","lavandina.png",0,2000],["Lisoform","lisoform.png",0,1000],["Jabon blanco","jabon.png",0,1000],
+  ]
+  let productos = [
+    ["Tapa de Asado","asado.png",0,15000],["Vacio","vacio.png",0,18000],["Bondiola","bondiola.png",0,10000],
+    ["Bola de Lomo","bolaDeLomo.png",0,20000],["Cuadril","cuadril.png",0,19000],["Nalga","nalga.png",0,18000],
+    ["Tomate x kilo","tomate.png",0,2500],["Lechuga c/u","lechuga.png",0,1000],["Papa x kilo","papa.png",0,2000],
+    ["Manzana x kilo","manzana.png",0,3500],["Banana x kilo","banana.png",0,2500],["Naranja x kilo","naranja.png",0,2500],
+    ["Fideos Luchetti","fideos.png",0,1500],["Arroz Gallo","arroz.png",0,2000],["Yerba Playadito","yerba.png",0,5500],
+    ["Celusal","celusal.png",0,4500],["Galletitas","galletitas.png",0,2500],["Aceite Cañuelas","aceite.png",0,3500],
+    ["Jorgito","alfajor.png",0,1500],["Mogul","mogul.png",0,1000],["Bolsa de Caramelos","caramelos.png",0,2000],
+    ["Rocklets","rocklets.png",0,1000],["Bombon Helado","helado.png",0,1500],["Chocolate Milka","milka.png",0,2000],
+    ["Agua Glaciar","agua.png",0,2000],["Jugo Fresh","jugo.png",0,2500],["Coca","coca.png",0,5000],
+    ["El Vino este","vino.png",0,6500],["Cerveza Quilmes","cerveza.png",0,3000],["Fernet Branca","fernet.png",0,10000],
+    ["Rollo de Cocina","rolloCocina.png",0,2500],["Rollo de Baño","rolloBano.png",0,1500],["Procenex","procenex.png",0,1500],
+    ["Lavandina Ayudin","lavandina.png",0,2000],["Lisoform","lisoform.png",0,1000],["Jabon blanco","jabon.png",0,1000],
+  ]
+  let estado = 6;
+  let intervaloPagar;
+  let muestra = false;
+  let ancho = 0;
+  let momentoIntervalo = false;
+  let whore = 0;
+  let infoJSON = JSON.parse(localStorage.getItem("infoCoto"));
+  if (infoJSON !== null) {
+    document.getElementById("id1").innerHTML = "¡Ya tenés una cuenta!";
+    document.getElementById("id2").innerHTML = "Ingresa tu contraseña crack";
+    document.getElementById("usuario").classList.add("z");
+    if (infoJSON["ultimasCompras"] !== undefined) {ultimasCompras = [...infoJSON["ultimasCompras"]];}
+  }
+  document.getElementById("usuario").addEventListener("click",()=>{
+    document.getElementById("usuario").style.color = 'blue';
+    document.getElementById("usuario").style.border = '2px solid blue';
+    document.getElementById("contrasenia").style.removeProperty("color");
+    document.getElementById("contrasenia").style.removeProperty("border");
+  })
+  document.getElementById("contrasenia").addEventListener("click",()=>{
+    document.getElementById("contrasenia").style.color = 'blue';
+    document.getElementById("contrasenia").style.border = '2px solid blue';
+    document.getElementById("usuario").style.removeProperty("color");
+    document.getElementById("usuario").style.removeProperty("border");
+  })
+  document.getElementById("caja1").addEventListener("click",(event)=>{
+    if (event.target.tagName === "INPUT") return;
+    document.getElementById("contrasenia").style.removeProperty("color");
+    document.getElementById("contrasenia").style.removeProperty("border");
+    document.getElementById("usuario").style.removeProperty("color");
+    document.getElementById("usuario").style.removeProperty("border");
+  })
+  document.getElementById("ojo").addEventListener("click",(event)=>{
+    if (document.getElementById("contrasenia").type === "text") document.getElementById("contrasenia").type = "password";
+    else if (document.getElementById("contrasenia").type === "password") document.getElementById("contrasenia").type = "text";
+  })
+  document.querySelector(".contraFlorAlResto").addEventListener("click",()=>{
+    const loggeado = document.getElementById("usuario").classList.contains("z");
+    if (!loggeado) {
+      if (document.getElementById("usuario").value !== "" && document.getElementById("contrasenia").value !== "") {
+        const cosoJSON = {
+          "contrasenia":document.getElementById("contrasenia").value,
+          "usuario":document.getElementById("usuario").value,
+          "ultimasCompras":ultimasCompras
+        };
+        localStorage.setItem("infoCoto", JSON.stringify(cosoJSON));
+        infoJSON = {...cosoJSON};
+      } else {return alert("Algún valor esta mal");}
+    } else {
+      if (!(document.getElementById("contrasenia").value === infoJSON["contrasenia"])) {return alert("Contraseña incorrecta");}
+    }
+    document.getElementById("caja1").classList.remove("perro");
+    document.getElementById("caja1").classList.add("z");
+    document.getElementById("caja2").classList.add("contenedor");
+    document.getElementById("caja2").classList.remove("z");
+    ponerProductos();
+  })
+  document.querySelectorAll(".touch").forEach((element)=>{element.addEventListener("click",()=>{
+    estado = Number(element.id);
+    for (let i=0; i<6; ++i) {
+      document.getElementById(`${i}`).style.backgroundColor = "rgb(200, 200, 200)";
+      if (i === estado) {document.getElementById(`${i}`).style.backgroundColor = "grey";}
+    }
+    ponerProductos();
+  })})
+  function ponerProductos() {
+    const garca = estado === 6;
+    const inicio = garca ? 0 : estado * 6;
+    const final = garca ? 6 : inicio + 6;
+    document.getElementById("navidad").replaceChildren();
+    for(let i = inicio; i < final; ++i) {
+      let p = i;
+      if (garca) {
+        for (let j=0; j<productos.length; ++j) {
+          if (productos[j][0] === ultimasCompras[i][0]) {p = j; break;}
+        }
+      }
+      const gus = document.createElement("div");
+      const spanGus = document.createElement("span");
+      spanGus.innerText = `$${productos[p][3]}`;
+      const imgGus = document.createElement("img");
+      imgGus.src = `../Super Coto/Productos/${productos[p][1]}`;
+      imgGus.classList.add(["Rocklets", "Chocolate Milka", "Mogul", "Jabon blanco"].includes(productos[p][0]) ? "ancho" : "alto");
+      const divGus = document.createElement("div");
+      const span1 = document.createElement("span");
+      span1.innerText = `${productos[p][2]}`;
+      span1.id = `p${p}`;
+      const span2 = document.createElement("span");
+      span2.innerText = `${productos[p][0]}`;
+      const contenedorCoso = document.createElement("div");
+      const coso = document.createElement("div");
+      const coso1 = document.createElement("span");
+      coso1.innerText = `+`;
+      coso.appendChild(coso1);
+      coso.addEventListener("click",()=>{
+        mas(p);
+      });
+      const coso2 = document.createElement("div");
+      const coso21 = document.createElement("span");
+      coso21.innerText = `-`;
+      coso2.appendChild(coso21);
+      coso2.addEventListener("click",()=>{
+        menos(p);
+      });
+      divGus.appendChild(span1);
+      divGus.appendChild(span2);
+      contenedorCoso.appendChild(coso);
+      contenedorCoso.appendChild(coso2);
+      divGus.appendChild(contenedorCoso);
+      gus.appendChild(spanGus);
+      gus.appendChild(imgGus);
+      gus.appendChild(divGus);
+      document.getElementById("navidad").appendChild(gus);
+    }
+  }
+  function mas(x) {
+    if (productos[x][2] >= 100) return;
+    productos[x][2]++;
+    document.getElementById(`p${x}`).innerHTML = `${productos[x][2]}`;
+    if (muestra) {tocadorPorHerencia();}
+  }
+  function menos(x) {
+    if (productos[x][2] <= 0) return;
+    productos[x][2]--;
+    document.getElementById(`p${x}`).innerHTML = `${productos[x][2]}`;
+    if (muestra) {tocadorPorHerencia();}
+  }
+  function tocadorPorHerencia() {
+    document.getElementById("carrito").replaceChildren();
+    whore = 0;
+    for (let i=0; i<productos.length; ++i) {
+      if (productos[i][2] <= 0) continue;
+      whore += productos[i][2]*productos[i][3];
+      const netanyahu = document.createElement("div");
+      const netanyahu2 = document.createElement("span");
+      netanyahu2.innerHTML = `•`;
+      netanyahu.appendChild(netanyahu2);
+      const netanyahu3 = document.createElement("span");
+      netanyahu3.innerHTML = `${productos[i][2]}`;
+      netanyahu.appendChild(netanyahu3);
+      const netanyahu4 = document.createElement("span");
+      netanyahu4.innerHTML = `${productos[i][0]}`;
+      netanyahu.appendChild(netanyahu4);
+      const netanyahu5 = document.createElement("span");
+      netanyahu5.innerHTML = `$${productos[i][3]}`;
+      netanyahu.appendChild(netanyahu5);
+      document.getElementById("carrito").appendChild(netanyahu);
+    }
+    document.getElementById("cuenta").innerHTML = `$${whore}`;
+  }
+  document.getElementById("flechita").addEventListener("click", ()=>{
+    if (momentoIntervalo) return;
+    muestra = !muestra;
+    document.querySelector("#flechita > span").innerHTML = muestra ? `🠺` : `🠸`;
+    if (!!!muestra === false) {tocadorPorHerencia();}
+    intervaloPagar = setInterval(()=>{
+      momentoIntervalo = true;
+      if (muestra) {
+        ancho++;
+        if (ancho >= 30) {momentoIntervalo = false; clearInterval(intervaloPagar);}
+      } else {
+        ancho--;
+        if (ancho <= 0) {momentoIntervalo = false; clearInterval(intervaloPagar);}
+      }
+      document.querySelector(".contenedor > :nth-child(3)").style.left = `${96-ancho}vw`;
+    },40)
+  })
+  document.getElementById("garpar").addEventListener("click",()=>{
+    if (whore <= 0) return;
+    document.getElementById("primera").classList.remove("z");
+    document.getElementById("primera").classList.add("segunda");
+    document.getElementById("chupete").innerHTML = `¿Deseas Pagar $${whore}?`;
+  })
+  document.getElementById("no").addEventListener("click",()=>{
+    document.getElementById("primera").classList.add("z");
+    document.getElementById("primera").classList.remove("segunda");
+  })
+  document.getElementById("yes").addEventListener("click",()=>{
+    document.getElementById("primera").classList.add("z");
+    document.getElementById("primera").classList.remove("segunda");
+    document.getElementById("tercera").classList.remove("z");
+    document.getElementById("tercera").classList.add("cuarta");
+    const GG = {
+      "Tapa de Asado":0,"Vacio":1,"Bondiola":2,"Bola de Lomo":3,"Cuadril":4,"Nalga":5,
+      "Tomate x kilo":6,"Lechuga c/u":7,"Papa x kilo":8,"Manzana x kilo":9,"Banana x kilo":10,"Naranja x kilo":11,
+      "Fideos Luchetti":12,"Arroz Gallo":13,"Yerba Playadito":14,"Celusal":15,"Galletitas":16,"Aceite Cañuelas":17,
+      "Jorgito":18,"Mogul":19,"Bolsa de Caramelos":20,"Rocklets":21,"Bombon Helado":22,"Chocolate Milka":23,
+      "Agua Glaciar":24,"Jugo Fresh":25,"Coca":26,"El Vino este":27,"Cerveza Quilmes":28,"Fernet Branca":29,
+      "Rollo de Cocina":30,"Rollo de Baño":31,"Procenex":32,"Lavandina Ayudin":33,"Lisoform":34,"Jabon blanco":35
+    }
+    for (let i=0; i<ultimasCompras.length; ++i) {
+      ultimasCompras[i][2] += productos[GG[ultimasCompras[i][0]]][2];
+    }
+    for (let i=0; i<ultimasCompras.length; ++i) {
+      for (let j=0; j<ultimasCompras.length; ++j) {
+        if (ultimasCompras[i][2] > ultimasCompras[j][2]) {
+          [ultimasCompras[i], ultimasCompras[j]] = [ultimasCompras[j], ultimasCompras[i]];
+        }
+      }
+    }
+    const cosoJSON = {
+      "contrasenia":infoJSON["contrasenia"],
+      "usuario":infoJSON["usuario"],
+      "ultimasCompras":ultimasCompras
+    };
+    localStorage.setItem("infoCoto", JSON.stringify(cosoJSON));
+    productos = [
+      ["Tapa de Asado","asado.png",0,15000],["Vacio","vacio.png",0,18000],["Bondiola","bondiola.png",0,10000],
+      ["Bola de Lomo","bolaDeLomo.png",0,20000],["Cuadril","cuadril.png",0,19000],["Nalga","nalga.png",0,18000],
+      ["Tomate x kilo","tomate.png",0,2500],["Lechuga c/u","lechuga.png",0,1000],["Papa x kilo","papa.png",0,2000],
+      ["Manzana x kilo","manzana.png",0,3500],["Banana x kilo","banana.png",0,2500],["Naranja x kilo","naranja.png",0,2500],
+      ["Fideos Luchetti","fideos.png",0,1500],["Arroz Gallo","arroz.png",0,2000],["Yerba Playadito","yerba.png",0,5500],
+      ["Celusal","celusal.png",0,4500],["Galletitas","galletitas.png",0,2500],["Aceite Cañuelas","aceite.png",0,3500],
+      ["Jorgito","alfajor.png",0,1500],["Mogul","mogul.png",0,1000],["Bolsa de Caramelos","caramelos.png",0,2000],
+      ["Rocklets","rocklets.png",0,1000],["Bombon Helado","helado.png",0,1500],["Chocolate Milka","milka.png",0,2000],
+      ["Agua Glaciar","agua.png",0,2000],["Jugo Fresh","jugo.png",0,2500],["Coca","coca.png",0,5000],
+      ["El Vino este","vino.png",0,6500],["Cerveza Quilmes","cerveza.png",0,3000],["Fernet Branca","fernet.png",0,10000],
+      ["Rollo de Cocina","rolloCocina.png",0,2500],["Rollo de Baño","rolloBano.png",0,1500],["Procenex","procenex.png",0,1500],
+      ["Lavandina Ayudin","lavandina.png",0,2000],["Lisoform","lisoform.png",0,1000],["Jabon blanco","jabon.png",0,1000],
+    ]
+    estado = 6;
+    for (let i=0; i<6; ++i) {
+      document.getElementById(`${i}`).style.backgroundColor = "rgb(200, 200, 200)";
+    }
+    ponerProductos();
+    whore = 0;
+    tocadorPorHerencia();
+  })
+  document.getElementById("listoProblema").addEventListener("click",()=>{
+    document.getElementById("tercera").classList.add("z");
+    document.getElementById("tercera").classList.remove("cuarta");
+  })
+</script>
+</html>
